@@ -1,3 +1,4 @@
+### THIS README IS NOT UP TO DATE (Michel)
 ### Launching the application
 
 In order to launch the application, we must:

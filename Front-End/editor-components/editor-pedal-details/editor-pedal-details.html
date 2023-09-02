@@ -1,0 +1,147 @@
+<template id="template-details">
+
+    <style>
+        @import "css/StyleSheet.css";
+        #width {
+            border:2px solid red;
+        }
+       /*  #backround-images {
+            width: 50%;
+            float: right;
+        }
+
+        #uploadImage {
+            margin-left: 10%;
+            width: 80%;
+        } */
+
+        
+
+    </style>
+
+    <div style="direction: ltr;">
+
+        <details class="editor-collapsible" open>
+            
+            <summary style="color: white;" > Pedal configuration </summary>
+""
+            <div class="editor-collapsible-content" style="background-color: #333;">
+                <div style="display:none">
+                    <label style="direction: ltr; color: white;">Name: </label>
+                    <input id="pedal-name" name="name" class="maininput" style="direction: ltr;" disabled>
+
+                    <br>
+                </div>
+                <label style="direction: ltr; color: white;">Background color: #</label>
+                <input type="color" name="color" class="maininput" style="direction: ltr;" disabled>
+
+                <br>
+
+                <label style="direction: ltr; color: white;">Width: </label>
+                <input id="width" class="maininput" type="range" name="width" min="100" max="600" style="direction: ltr;" disabled> px
+
+                <br>
+
+                <label style="direction: ltr; color: white;">Height: </label>
+                <input id="height" class="maininput" type="range" name="height" min="0" max="600" style="direction: ltr;" disabled> px
+
+                <br>""
+
+                <label style="direction: ltr; color: white;">Radius: </label>
+                <input id="radius" class="maininput" type="range" name="radius" min="0" max="150" style="direction: ltr;" disabled> px
+
+                <br>
+
+                <label style="direction: ltr; color: white;">Image opacity: </label>
+                <input id="opacity" class="maininput" type="range" name="opacity" min="0" max="1" step = 0.1 style="direction: ltr;" disabled>
+                <br>
+                <label style="direction: ltr; color: white;">Background images: </label>
+                <div id="background-images" style="direction: ltr;">
+                    <!--
+                    <img class="menu-img background-image" src="./img/background/image2.png" alt="image2.png" />
+                    <img class="menu-img background-image" src="./img/background/1.png" alt="1.png" />
+                    <img class="menu-img background-image" src="./img/background/2.jpg" alt="2.jpg" />
+                    -->
+                    <pedal-elem-previews url="http://localhost:3000/previews/backgrounds" pedal-element-type="backgroundImages" id="preview-switches" >
+                    </pedal-elem-previews>
+                   
+                </div>
+                <!--
+                <a data-toggle="modal" data-target="#moreModal" href="#moreModal" style="direction: ltr; float: right;" onclick="loadmore()">more...</a>
+                <br>
+                -->
+                <!--<input id="uploadImage" type="file" class="maininput" name="radius" name="photo" />-->
+                <br />
+
+            </div>
+
+        </details>
+        
+        <div style="display:none">
+        <details class="editor-collapsible">
+
+            <summary style="color: white;"> Add pedal element </summary>
+
+            <div class="editor-collapsible-content">
+
+                <details id="add-knob" class="sub-editor-collapsible">
+                    <summary style="color: whitesmoke;"> Knob </summary>
+                    <div class="editor-collapsible-content">
+                        <pedal-elem-previews url="http://localhost:3000/previews/knobs" pedal-element-type="knob">
+                        </pedal-elem-previews>
+                        
+                    </div>
+                </details>
+
+                <details id="add-icon" class="sub-editor-collapsible">
+                    <summary style="color: whitesmoke;"> Icons </summary>
+                    <div class="editor-collapsible-content">
+                        <pedal-elem-previews url="http://localhost:3000/previews/icons" pedal-element-type="icon">
+                        </pedal-elem-previews>
+                    </div>
+                </details>
+                
+                <details id="ad-slider" class="sub-editor-collapsible" pedal-element-type="slider">
+                    <summary style="color: whitesmoke;">Sliders</summary>
+                    <div class="editor-collapsible-contnet">
+                        <pedal-elem-previews url="http://localhost:3000/previews/sliders" pedal-element-type="slider">
+                        </pedal-elem-previews>
+                    </div>
+                </details>
+
+                <details id="ad-switch" class="sub-editor-collapsible" pedal-element-type="slider">
+                    <summary style="color: whitesmoke;">Switches</summary>
+                    <div class="editor-collapsible-contnet">
+                        <pedal-elem-previews url="http://localhost:3000/previews/switches" pedal-element-type="switch">
+                        </pedal-elem-previews>
+                    </div>
+                </details>
+            
+            </div>
+
+        </details>
+    </div>>
+
+
+    </div>
+    
+</template>
+
+
+<link rel="import" href="./pedal-elem-previews.html">
+
+
+<script src="editor-pedal-details.js"></script>
+
+<script>
+
+/*
+$('a[href$="moreModal"]').on( "click", function() {
+   $('#moreModal').modal('show');
+});
+
+function loadmore(){
+
+}
+*/
+</script>

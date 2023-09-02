@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>color-picker demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../color-element.html">
+    <link rel="import" href="../color-picker.html">
+    <link rel="import" href="../overlay-color-picker.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .result {
+          margin: 0.75em;
+          padding: 0.5em;
+          line-height: 1.5;
+        }
+      </style>
+    </custom-style>
+  </head>
+
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Create a standalone color-element</h3>
+      <demo-snippet>
+        <template>
+          <dom-bind>
+            <template is="dom-bind">
+              <color-input color-string="{{value}}" default="hsl(222, 50%, 90%)" alpha="{{alpha}}" format="{{format}}"></color-input>
+              <br>
+              <br>
+              <color-element color-string="{{value}}" hex="{{hex}}" alpha="{{alpha}}" format="{{format}}"></color-element>
+              <div class="vertical-section-container result">
+                <div>
+                  <span>format </span>
+                  <select id="formats" value="{{format::change}}">
+                    <option value="auto">auto</option>
+                    <option value="rgb">rgb</option>
+                    <option value="hex">hex</option>
+                    <option value="hsl">hsl</option>
+                  </select>
+                </div>
+                <div><code>hex</code>: <b>[[hex]]</b></div>
+                <div><code>alpha</code>: <b>[[alpha]]</b></div>
+                <div><code>color-string</code>: <b>[[value]]</b></div>
+              </div>
+            </template>
+          </dom-bind>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>Create a polyfill color-picker, if available</h3>
+      <demo-snippet>
+        <template>
+          <dom-bind>
+            <template is="dom-bind">
+              <input type="checkbox" checked="{{native::change}}">native color picker
+              <br>
+              <br>
+              <input type="checkbox" checked="{{autoConfirm::change}}">auto confirm
+              <br>
+              <br>
+              <select id="formats" value="{{format::change}}">
+                <option value="auto">auto</option>
+                <option value="rgb">rgb</option>
+                <option value="hex">hex</option>
+                <option value="hsl">hsl</option>
+              </select>
+              <br>
+              <br>
+              <color-picker value="{{value}}" default="yellow" alpha="{{alpha}}" hex="{{hex}}" auto-confirm="[[autoConfirm]]" confirmed-value="{{confirmedValue}}" vertical-align="bottom" native="{{native}}" format="{{format}}"></color-picker>
+              <div class="vertical-section-container result">
+                <div><code>hex</code>: <b>[[hex]]</b></div>
+                <div><code>alpha</code>: <b>[[alpha]]</b></div>
+                <div><code>value</code>: <b>[[value]]</b></div>
+                <div><code>(confirmed) value</code>: <b>[[confirmedValue]]</b></div>
+              </div>
+            </template>
+          </dom-bind>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>An color-picker in an overlay in custom-style</h3>
+      <demo-snippet>
+        <template>
+          <dom-bind>
+            <template is="dom-bind">
+              <custom-style>
+                <style>
+                  .custom {
+                    --input-color: #f1f1f1;
+                    --input-background: #b07143;
+                    --input-picker-color: #f1f1f1;
+                    --input-picker-background: #b07143;
+                    --input-focus-background: #ddcd7e;
+                    --inner-input-focus-background: #f4edce;
+                    --input-focus-color: #202020;
+                    --inner-input-focus-color: #121212;
+                    --input-picker-border-radius: 12px;
+                    --color-badge-height: 32px;
+                    --color-badge-width: 32px;
+                    --color-badge-radius: 50%;
+                    --color-element-height: 120px;
+                    --color-element-width: 60px;
+                    --color-slider-width: 24px;
+                  }
+                </style>
+              </custom-style>
+              <br>
+              <br>
+              <overlay-color-picker class="custom" auto-confirm no-overlap no-tip vertical-align="bottom"></overlay-color-picker>
+            </template>
+          </dom-bind>
+        </template>
+      </demo-snippet>
+    </div>
+
+  </body>
+
+</html>

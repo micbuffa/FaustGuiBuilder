@@ -1,0 +1,116 @@
+<template id="pedal-details">
+
+    <style>
+        @import "css/StyleSheet.css";
+        #backround-images {
+            width: 50%;
+            float: right;
+        }
+
+        #uploadImage {
+            margin-left: 10%;
+            width: 80%;
+        }
+    </style>
+    <details class="editor-collapsible" open>
+            
+            <summary style="color: white;" >Element properties</summary>
+""
+    <div style="direction: ltr;" >
+        <button class="mainbtn" onclick="deleteSelectedElement()">Delete</button>
+
+            <br>
+
+            <label style="color: white;">Label: </label>
+            <input id="inspector-label" class="maininput" type="text" name="label" disabled>
+
+            <br>
+
+
+            <label style="color: white;">Label Font Family: </label>
+            <select id="inspector-label-font-family" class="maininput" name="label_fontfamily" disabled>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Palatino Linotype">Palatino Linotype</option>
+                <option value="Arial Black">Arial Black</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Impact">Impact</option>
+                <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Lucida Console">Lucida Console</option>
+            </select>
+
+            <br>
+
+            <label style="color: white;">Label Color: </label>
+            <input id="inspector-label-color" type="color" class="jscolor maininput" name="label_color" disabled>
+
+            <br>
+
+            <label style="color: white;">Label size: </label>
+            <input id="inspector-label-font-size" class="fontsizeselector maininput" type="range" value=20 min="5" max="100" step="1"  name="label_fontsize" disabled> px
+
+            <br>
+            <br>
+
+            <label style="color: white;">X position: </label>
+            <input id="inspector-x-position" class="maininput" type="number" name="x" min=-200 max = 1500 disabled>
+
+            <br>
+
+            <label style="color: white;">Y position: </label>
+            <input id="inspector-y-position" class="maininput" type="number" name="y"  min=-200 max = 1500 disabled>
+
+            <br>
+            <br>
+
+            <label style="color: white;">Width: </label>
+            <input id="inspector-width" class="maininput" type="range" name="width" min=30 max=200 disabled>
+
+            <br>
+
+            <label style="color: white;">Height: </label>
+            <input id="inspector-height" class="maininput" type="range" name="height" min=30 max=200 disabled>
+
+            <br>
+
+            <label style="color: white;">Keep ratio</label>
+            <input id="keep-ratio" type="checkbox" class="maininput-checkbox" checked="true">
+
+            <br>
+            <br>
+
+            
+            <select id="inspector-model" class="maininput" name="model" disabled style="display:none">
+                <option value="knob2.png">Knob2</option>
+                <option value="Carbon.png">Carbon</option>
+                <option value="JP8000.png">JP8000</option>
+                <option value="Jambalaya.png">Jambalaya</option>
+                <option value="MiniMoog_Main.png">MiniMoog_Main</option>
+                <option value="SimpleFlat3.png">SimpleFlat3</option>
+                <option value="Vintage_Knob.png">Vintage_Knob</option>
+                <option value="lineshadow.png">lineshadow</option>
+                <option value="lineshadow2.png">lineshadow2</option>
+            </select>
+
+            <label style="color: white; direction: ltr;">Model: </label>
+
+            <div class="editor-collapsible-content" style="direction: ltr;">
+                    <pedal-elem-previews url="http://localhost:3000/previews/knobs" pedal-element-type="knob" id="preview-knobs" style="display:none">
+                    </pedal-elem-previews>
+                    <pedal-elem-previews url="http://localhost:3000/previews/sliders" pedal-element-type="slider" id="preview-sliders" style="display:none">
+                    </pedal-elem-previews>
+                    <pedal-elem-previews url="http://localhost:3000/previews/switches" pedal-element-type="switch" id="preview-switches" style="display:none">
+                    </pedal-elem-previews>
+                    
+            </div>
+    </div>
+</details>
+
+</template>
+<link rel="import" href="./editor-pedal-details/pedal-elem-previews.html">
+
+<script src="editor-inspector.js"></script>

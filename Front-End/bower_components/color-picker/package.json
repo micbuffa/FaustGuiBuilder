@@ -1,0 +1,33 @@
+{
+  "name": "@fooloomanzoo/color-picker",
+  "version": "2.0.8",
+  "authors": [
+    "Johannes Brautzsch <fooloomanzoo>"
+  ],
+  "description": "A picker for color, that can use the native input.",
+  "homepage": "https://github.com/fooloomanzoo/color-picker/",
+  "keywords": [
+    "webcomponents",
+    "polymer",
+    "picker",
+    "color",
+    "range",
+    "input",
+    "polyfill"
+  ],
+  "main": "index.html",
+  "scripts": {
+    "postinstall": "bower install --save-dev",
+    "prepublish": "npm run build && git add . && git commit -m \"publish new version\" && npm version patch && git push",
+    "gh-pages": "git checkout gh-pages && git pull && bower update -f && git add . && git commit -m \"update\" && git push && git checkout master",
+    "build": "git pull && bower update && polymer analyze > analysis.json",
+    "prestart": "polymer analyze > analysis.json",
+    "start": "polymer serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fooloomanzoo/color-picker.git"
+  },
+  "license": "MIT"
+}
