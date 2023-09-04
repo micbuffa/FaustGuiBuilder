@@ -2112,7 +2112,7 @@
     let functionalPedalGenerator;
 
     var bt_buildIt = document.querySelector('#bt_buildIt');
-    let currentWapName, currentWapCode;
+    let currentWapName, currentWapCode, currentPolyState;
 
 
     //window.onload = initialize;
@@ -2774,7 +2774,7 @@
                 window.parent.postMessage({
                     type: "export",
                     plat: "web",
-                    arch: "wap"
+                    arch: currentPolyState ? "wam2-poly" : "wam2"
                 }, "*")
             }
         }
@@ -2877,6 +2877,7 @@
             //console.log("initializeFromMessagePostedByFaustIDE: faustUI.WapName = " + faustUI.WapName)
 
             currentWapName = faustUI.WapName;
+            currentPolyState = data.poly;
             //console.log("initializeFromMessagePostedByFaustIDE: currentWapName = " + currentWapName)
             //console.log("code = " + data.code);
             //Mettre en commentaire init() quand on utilise faust editor, bug à régler

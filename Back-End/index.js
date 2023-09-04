@@ -546,7 +546,7 @@ app.post("/generateWAM2", multerData.fields([]), function (req, res) {
               ".dsp file"
           );
         } else {
-          fs.writeFile(wapDir + "/index.js", req.body.indexJS, (err) => {
+          fs.writeFile(wapDir + "/index.temp.js", req.body.indexJS, (err) => {
             if (err) {
               res.error(
                 "An error occured saving the " + wapDir + "/index.js file"
@@ -587,7 +587,8 @@ app.post("/addBinaryDotZipWAM2", multerData.fields([]), function(req, res) {
         unzip.Extract({ path: wapDir }).on("close", function () {
           // zip has been completely extracted, we can rename
           // main.js into Node.js
-          fs.renameSync(wapDir + "/main.js", wapDir + "/Node.js");
+          fs.renameSync(wapDir + "/index.js", wapDir + "/wam.js");
+          fs.renameSync(wapDir + "/index.temp.js", wapDir + "/index.js");
 
           // copy host files
           // delete if exists current index.html (old WAM1.0 host)
